@@ -1,0 +1,12 @@
+micronaut:
+  application:
+    name: tracing
+  http:
+    services:
+      some-service:
+        url: 'http://localhost:9090'
+
+netty:
+  default:
+    allocator:
+      max-order: 3
