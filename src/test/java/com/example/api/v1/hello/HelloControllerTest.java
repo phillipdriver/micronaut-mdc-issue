@@ -48,7 +48,8 @@ class HelloControllerTest {
     HttpResponse<String> response = client.toBlocking().exchange(HttpRequest.GET(HELLO_URI), String.class);
     assertThat(response.body()).isEqualTo("Hello John!");
 
-    // perform a second call to demonstrate the issue with MdcInstrumenter logging
+    // perform subsequent calls to demonstrate the issue with MdcInstrumenter client response logging
+    client.toBlocking().exchange(HttpRequest.GET(HELLO_URI), String.class);
     client.toBlocking().exchange(HttpRequest.GET(HELLO_URI), String.class);
   }
 }

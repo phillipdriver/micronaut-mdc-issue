@@ -44,5 +44,12 @@ micronaut {
     }
 }
 
-
-
+tasks.withType(Test) {
+    testLogging {
+        showCauses true
+        showExceptions true
+        showStackTraces true
+        showStandardStreams true
+        events "passed", "skipped", "failed"
+    }
+}
